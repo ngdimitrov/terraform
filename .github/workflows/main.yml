@@ -17,4 +17,4 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Deploy to Production
-        run: touch test18.txt
+        run: /opt/touch test18.txt
