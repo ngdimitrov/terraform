@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - terraform-conf
+      - develop
 
 jobs:
   deploy:
@@ -14,9 +15,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
       - name: Deploy to Production
         run: mkdir test.txt
-          # Replace this command with your deployment script
-          echo "Deploying to production..."
-
-        # Add additional configuration for deployment environment here if needed
