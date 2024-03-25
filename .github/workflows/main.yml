@@ -1,0 +1,25 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+      - terraform-conf
+
+jobs:
+  deploy:
+    name: Deploy Application
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Add any build steps here if needed
+
+      - name: Deploy to Production
+        run: mkdir test.txt
+          # Replace this command with your deployment script
+          echo "Deploying to production..."
+
+        # Add additional configuration for deployment environment here if needed
