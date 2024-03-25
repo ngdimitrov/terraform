@@ -15,8 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Add any build steps here if needed
-
       - name: Deploy to Production
         run: mkdir test.txt
           # Replace this command with your deployment script
