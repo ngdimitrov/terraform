@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2        
+        uses: actions/checkout@v3       
       - name: Deploy to Production
         run: touch /opt/test18.txt
       - name: Set up Node.js
