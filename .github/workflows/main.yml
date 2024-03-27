@@ -16,7 +16,7 @@ on:
 jobs:
   build:
     name: Deploy Application
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     
     defaults:
       run:
