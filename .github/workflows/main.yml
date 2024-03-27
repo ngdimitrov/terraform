@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3 
-      - name: Checkout code
-        uses: actions/setup-node@v3      
-      - name: Deploy to Production
+        runs:
+          using: 'node20'
+          main: 'main.js'
         run: touch /opt/test18.txt
