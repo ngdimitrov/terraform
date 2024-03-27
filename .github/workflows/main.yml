@@ -20,8 +20,5 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 
-        runs:
-          using: 'node20'
-          main: 'main.js'
+        uses: actions/checkout@vdevelop
         run: touch /opt/test18.txt
