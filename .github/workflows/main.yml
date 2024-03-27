@@ -23,8 +23,6 @@ jobs:
         uses: actions/checkout@v2        
       - name: Deploy to Production
         run: touch /opt/test18.txt
-
-    steps:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
