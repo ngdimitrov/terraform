@@ -6,9 +6,14 @@ on:
       - main
       - terraform-conf
       - develop
+  pull_request:
+    branches:
+      - main
+      - terraform-conf
+      - develop
 
 jobs:
-  deploy:
+  build:
     name: Deploy Application
     runs-on: ubuntu-22.04
 
