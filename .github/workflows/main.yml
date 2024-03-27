@@ -20,10 +20,6 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3       
+        uses: actions/setup-node@v3       
       - name: Deploy to Production
         run: touch /opt/test18.txt
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
