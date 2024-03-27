@@ -19,7 +19,6 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-        
+        uses: actions/checkout@v2        
       - name: Deploy to Production
         run: touch /opt/test18.txt
