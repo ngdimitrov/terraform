@@ -17,6 +17,11 @@ jobs:
   build:
     name: Deploy Application
     runs-on: ubuntu-22.04
+    
+    defaults:
+      run:
+        shell: bash
+
 
     steps:
       - name: Checkout code
