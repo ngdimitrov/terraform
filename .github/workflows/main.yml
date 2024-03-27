@@ -20,6 +20,8 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/setup-node@v3       
+        uses: actions/checkout@v3 
+      - name: Checkout code
+        uses: actions/setup-node@v3      
       - name: Deploy to Production
         run: touch /opt/test18.txt
