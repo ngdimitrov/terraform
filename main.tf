@@ -8,7 +8,18 @@ terraform {
 }
 
 provider "lxd" {
-  # Configuration options
+  generate_client_certificates = true
+  accept_remote_certificate    = true
+
+  remote {
+    name     = "lxd-server-1"
+    scheme   = "https"
+    address  = "192.168.3.112"
+    password = "nik!"
+    port     = "8443"
+    default  = true
+  }
+
 }
 
 resource "lxd_instance" "nginx" {
