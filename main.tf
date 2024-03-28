@@ -23,6 +23,11 @@ resource "lxd_instance" "nginx" {
   name             = "nginx"
   image            = "ubuntu:22.04"
   wait_for_network = "true"
+
+    config = {
+    "ipv4.address" = "10.206.7.64"
+  }
+
 }
 
   device {
