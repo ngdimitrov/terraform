@@ -99,29 +99,31 @@
 #     - name: Terraform Apply
 #       if: github.ref == 'refs/heads/"develop"' && github.event_name == 'push'
 #       run: terraform apply -auto-approve
+ 
 
+name: Push to feature branch
 
-name: Example installing Terraform
+on:
+  push:
+    branches:
+      - '*'
 
-on: [push]
-
-jobs:
-  build:
-
+jobs: 
+  check-code:
     runs-on: self-hosted
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
+    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
+    # Set the working directory to vnet for the config files
+    defaults:
+        run:
+        shell: bash
+        working-directory: /opt/
+   # Install the selected version of Terraform CLI 
     steps:
-    - uses: actions/checkout@v1
-    - name: Install Terraform
-      uses: little-core-labs/install-terraform@v2.0.0
+    # Checkout the repository to the GitHub Actions runner
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
       with:
-           version: 0.13.4
-    # - name: Terraform apply
-    #   run: |
-    #     terraform init
-    #     terraform plan
-    #     terraform apply -auto-approve
+        terraform_version: ${{ secrets.TERRAFORM_VERSION }}
