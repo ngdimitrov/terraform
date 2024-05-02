@@ -125,11 +125,11 @@ jobs:
 
     - name: Nodejs
       run: sudo apt install -y nodejs
-      
+
     - name: Checkout
       uses: actions/checkout@v3
       
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
+      uses: hashicorp/setup-terraform@v3
       with:
         terraform_version: 1.7.5
