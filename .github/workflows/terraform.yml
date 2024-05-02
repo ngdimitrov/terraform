@@ -126,4 +126,4 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: ${{ secrets.TERRAFORM_VERSION }}
+        terraform_version: 1.7.5
