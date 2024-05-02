@@ -121,7 +121,7 @@ jobs:
       run: sudo apt install unzip
 
     - name: Nodejs
-      run: $ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - | $ sudo apt install -y nodejs
+      run: curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - | sudo apt install -y nodejs
 
     - name: Checkout
       uses: actions/checkout@v3
