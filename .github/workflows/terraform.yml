@@ -111,20 +111,19 @@ on:
 jobs: 
   check-code:
     runs-on: self-hosted
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    # Set the working directory to vnet for the config files
+
     defaults:
         run:
          shell: bash
          working-directory: /opt/
-   # Install the selected version of Terraform CLI 
     steps:
     - name: Unzup
       run: sudo apt install unzip
       
-    # Checkout the repository to the GitHub Actions runner
-   # - name: Checkout
-    #  uses: actions/checkout@v3
-
+    - name: Checkout
+      uses: actions/checkout@v3
+      
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v3
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.7.5
