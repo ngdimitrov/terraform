@@ -119,6 +119,9 @@ jobs:
          working-directory: /opt/
    # Install the selected version of Terraform CLI 
     steps:
+    - name: Unzup
+      run: sudo apt install unzip
+      
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
