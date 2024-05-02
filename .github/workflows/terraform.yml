@@ -115,8 +115,8 @@ jobs:
     # Set the working directory to vnet for the config files
     defaults:
         run:
-        shell: bash
-        working-directory: /opt/
+         shell: bash
+         working-directory: /opt/
    # Install the selected version of Terraform CLI 
     steps:
     # Checkout the repository to the GitHub Actions runner
