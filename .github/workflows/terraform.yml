@@ -121,15 +121,14 @@ jobs:
       run: sudo apt install unzip
 
     - name: Nodejs
-      run: curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-
-    - name: Nodejs
-      run: sudo apt install -y nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version: "20.x"
 
     - name: Checkout
       uses: actions/checkout@v3
       
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
+      uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.0.10
