@@ -117,8 +117,8 @@ jobs:
          shell: bash
          working-directory: /opt/
     steps:
-    - name: Gnupg
-      run: sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+    # - name: Gnupg
+    #   run: sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
     
     # - name: Install the HashiCorp GPG key
     #   run: wget -O- https://apt.releases.hashicorp.com/gpg | \  
@@ -128,13 +128,17 @@ jobs:
     # - name: Verify the key's fingerprint
     #   run: gpg --no-default-keyring \  --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \  --fingerprint
     
-    - name: official HashiCorp repository
-      run: echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \   https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \     sudo tee /etc/apt/sources.list.d/hashicorp.list
+    # - name: official HashiCorp repository
+    #   run: echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \   https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \     sudo tee /etc/apt/sources.list.d/hashicorp.list
 
-    - name: Download the package information from HashiCorp.
-      run: sudo apt update
+    # - name: Download the package information from HashiCorp.
+    #   run: sudo apt update
     
-    - name: Install Terraform from the new repository.
-      run: sudo apt-get install terraform     
+    # - name: Install Terraform from the new repository.
+    #   run: sudo apt-get install terraform     
       
+      - name: install
+        run: wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+        echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+        sudo apt update && sudo apt install terraform
       
