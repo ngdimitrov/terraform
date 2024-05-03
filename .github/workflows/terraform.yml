@@ -117,18 +117,22 @@ jobs:
          shell: bash
          working-directory: /opt/
     steps:
-    - name: Unzup
-      run: sudo apt install unzip
+    - name: Gnupg
+      run: sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+    
+    - name: Install the HashiCorp GPG key
+      run: wget -O- https://apt.releases.hashicorp.com/gpg | \  gpg --dearmor | \  sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
 
-    - name: Nodejs
-      uses: actions/setup-node@v3
-      with:
-        node-version: "20.x"
+    - name: Verify the key's fingerprint
+      run: gpg --no-default-keyring \  --keyring /usr/share/keyrings/hashicorp-archive-keyring.gpg \  --fingerprint
+    
+    - name: official HashiCorp repository
+      run: echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \   https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \     sudo tee /etc/apt/sources.list.d/hashicorp.list
 
-    - name: Checkout
-      uses: actions/checkout@v3
+    - name: Download the package information from HashiCorp.
+      run: sudo apt update
+    
+    - name: Install Terraform from the new repository.
+      run: sudo apt-get install terraform     
       
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
-      with:
-        terraform_version: 1.0.10
+      
