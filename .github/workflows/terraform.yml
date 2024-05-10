@@ -56,24 +56,8 @@ jobs:
     defaults:
         run:
          shell: bash
-         working-directory: /opt/
+         
     steps:
-      - name: Remove old GPG key if exist
-        run: sudo rm -f /usr/share/keyrings/hashicorp-archive-keyring.gpg
-
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
+      - uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.7.5
-
-      # - name: Install Terraform
-      #   run: wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg | echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list  | sudo apt update && sudo apt upgrade && sudo apt install terraform
-
-      - name: Init
-        run: cd /opt/
-
-      - name: Init
-        run: terraform init
+          terraform_version: "1.1.7"
