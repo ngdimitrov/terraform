@@ -52,6 +52,7 @@ on:
 jobs: 
   clone:
     runs-on: self-hosted
+  
          
     steps:
       - name: Install unzip/dependence
@@ -61,5 +62,5 @@ jobs:
         with:
           terraform_version: "1.1.7"
 
-      - name: Clone
-        uses: ngdimitrov/terraform@develop
+      
+      - uses: ngdimitrov/terraform@develop
