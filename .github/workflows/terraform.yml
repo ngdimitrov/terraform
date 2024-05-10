@@ -52,10 +52,6 @@ on:
 jobs: 
   check-code:
     runs-on: self-hosted
-    
-    defaults:
-        run:
-         shell: bash
          
     steps:
       - name: Install unzip/dependence
