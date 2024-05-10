@@ -52,17 +52,14 @@ on:
 jobs: 
   check-code:
     runs-on: self-hosted
-    container:
-      image: ubuntu:latest
-      options: --user=root --privileged
-
+    
     defaults:
         run:
          shell: bash
          
     steps:
       - name: Install unzip/dependence
-        run: apt update && apt install -y unzip
+        run: sudo apt update && sudo apt install -y unzip
 
       - uses: hashicorp/setup-terraform@v3
         with:
