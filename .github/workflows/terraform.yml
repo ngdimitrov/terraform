@@ -56,11 +56,16 @@ jobs:
          
     steps:
       - name: Install unzip/dependence
-        run: sudo apt update && sudo apt install -y unzip
+        run: apt update && apt install -y unzip "-u root"
 
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "1.1.7"
 
-      
-      - uses: ngdimitrov/terraform@develop
+      - name: git clone
+        run: cd /opt/ & git clone https://github.com/ngdimitrov/terraform.git
+        shell: bash
+
+      # - name: Run Environment Compilation
+      #   run: compile-noto aws_test_saas.yml
+      #   shell: bash
