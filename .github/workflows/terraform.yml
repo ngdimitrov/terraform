@@ -63,7 +63,7 @@ jobs:
           terraform_version: "1.1.7"
 
       - name: git clone
-        run: cd /opt/ && git clone https://github.com/ngdimitrov/terraform.git
+        run: cd /opt/ && sudo git clone https://github.com/ngdimitrov/terraform.git
         shell: bash
 
       # - name: Run Environment Compilation
