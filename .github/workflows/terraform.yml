@@ -59,7 +59,7 @@ jobs:
                 
         - name: Terraform Init
           id: init
-          run: cd /opt/terraform/ && terraform init
+          run: cd /opt/terraform/ && terraform apply -auto-approve
 
       # - name: Run Environment Compilation
       #   run: compile-noto aws_test_saas.yml
