@@ -67,7 +67,7 @@ jobs:
                 
         - name: Terraform apply
           id: apply
-          run: sudo /opt/terraform/main.tf
+          run: cd /opt/terraform/ && sudo terraform apply -auto-approve
 
       # - name: Run Environment Compilation
       #   run: compile-noto aws_test_saas.yml
