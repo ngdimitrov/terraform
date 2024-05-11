@@ -58,16 +58,16 @@ jobs:
         - uses: hashicorp/setup-terraform@v3
 
         - name: Terraform init
-          run: cd /opt/terraform/ && terraform init
+          run: cd /opt/terraform/ && terraform init && terraform fmt -check && sudo terraform apply -auto-approve
 
-          # Run a terraform fmt to check syntax
-        - name: Terraform Format
-          id: fmt
-          run: terraform fmt -check
+        #   # Run a terraform fmt to check syntax
+        # - name: Terraform Format
+        #   id: fmt
+        #   run: terraform fmt -check
                 
-        - name: Terraform apply
-          id: init
-          run: sudo terraform apply -auto-approve
+        # - name: Terraform apply
+        #   id: init
+        #   run: sudo terraform apply -auto-approve
 
       # - name: Run Environment Compilation
       #   run: compile-noto aws_test_saas.yml
