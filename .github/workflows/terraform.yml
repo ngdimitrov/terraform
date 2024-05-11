@@ -63,7 +63,7 @@ jobs:
           # Run a terraform fmt to check syntax
         - name: Terraform Format
           id: fmt
-          run: terraform fmt -check /opt/terraform/main.tf
+          run: cd /opt/terraform/ && terraform fmt -check
                 
         - name: Terraform apply
           id: init
