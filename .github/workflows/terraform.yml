@@ -52,22 +52,28 @@ on:
 jobs: 
   clone:
     runs-on: self-hosted
-  
-         
+           
     steps:
-      - name: Install unzip/dependence
-        run: sudo apt update && sudo apt install -y unzip
-
-      - name: Checkout repository
-        uses: actions/checkout@v3 
-
-      - uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.1.7"
-
-      - name: git clone
-        run: cd /opt/ && sudo git clone https://github.com/ngdimitrov/terraform.git
-        shell: bash
+        - uses: actions/checkout@v4
+        - uses: hashicorp/setup-terraform@v3
+    
+        - name: Terraform fmt
+          id: fmt
+          run: terraform fmt -check
+          continue-on-error: true
+        
+        - name: Terraform Init
+          id: init
+          run: terraform init
+        
+        - name: Terraform Validate
+          id: validate
+          run: terraform validate -no-color
+        
+        - name: Terraform Plan
+          id: plan
+          run: terraform plan -no-color
+          continue-on-error: true
 
       # - name: Run Environment Compilation
       #   run: compile-noto aws_test_saas.yml
