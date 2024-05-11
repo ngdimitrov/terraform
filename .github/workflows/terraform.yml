@@ -58,12 +58,12 @@ jobs:
         - uses: hashicorp/setup-terraform@v3
 
         - name: Terraform init
-          run: cd /opt/terraform/ && terraform init && terraform fmt -check
+          run: cd /opt/terraform/ && terraform init
 
           # Run a terraform fmt to check syntax
-        # - name: Terraform Format
-        #   id: fmt
-        #   run: terraform fmt -check
+        - name: Terraform Format
+          id: fmt
+          run: terraform fmt -check /opt/terraform/main.tf
                 
         - name: Terraform apply
           id: init
