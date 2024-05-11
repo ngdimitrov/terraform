@@ -60,7 +60,6 @@ jobs:
         - name: Terraform init
           run: cd /opt/terraform/ && terraform init
 
-          # Run a terraform fmt to check syntax
         - name: Terraform Format
           id: fmt
           run: cd /opt/terraform/ && terraform fmt -check main.tf
@@ -68,7 +67,3 @@ jobs:
         - name: Terraform apply
           id: apply
           run: cd /opt/terraform/ && sudo terraform apply -auto-approve
-
-      # - name: Run Environment Compilation
-      #   run: compile-noto aws_test_saas.yml
-      #   shell: bash
