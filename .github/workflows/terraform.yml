@@ -59,7 +59,7 @@ jobs:
     
         - name: Terraform fmt
           id: fmt
-          run: terraform fmt -check
+          run: cd /opt/terraform && terraform fmt -check
           continue-on-error: true
         
         - name: Terraform Init
