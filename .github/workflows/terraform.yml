@@ -73,3 +73,4 @@ jobs:
 
         - name: LXC2
           run: lxc config device add wiki2 80 proxy listen=tcp:0.0.0.0:80 connect=tcp:10.206.7.208:3000
+          
