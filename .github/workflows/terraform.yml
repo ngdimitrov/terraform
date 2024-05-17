@@ -66,7 +66,7 @@ jobs:
                 
         - name: Terraform apply
           id: apply
-          run: cd /opt/terraform/ && echo "nik!" | sudo -S terraform apply -auto-approve
+          run: cd /opt/terraform/ && echo "$pass" | sudo -S terraform apply -auto-approve
          
         # - name: LXC
         #   run: lxc config device add wiki 80 proxy listen=tcp:0.0.0.0:80 connect=tcp:10.206.7.61:3000
