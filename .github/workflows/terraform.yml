@@ -68,7 +68,7 @@ jobs:
           id: apply
           run: cd /opt/terraform/ && sudo terraform apply -auto-approve
          
-        # - name: LXC 
+        # - name: LXC
         #   run: lxc config device add wiki 80 proxy listen=tcp:0.0.0.0:80 connect=tcp:10.206.7.61:3000
 
         - name: LXC2
